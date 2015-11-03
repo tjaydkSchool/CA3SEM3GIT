@@ -1,2 +1,5 @@
 /build/
 /dist/
+/src/java/rest/ApplicationConfig.java
+/src/conf/persistence.xml
+/web/WEB-INF/web.xml

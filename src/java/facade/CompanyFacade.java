@@ -31,10 +31,12 @@ public class CompanyFacade {
     /**
      * Get a single company from database 
      *
+     * @param cvr
      * @return
      */
-    public Company getCompany(){
+    public Company getCompanyByCvr(String cvr){
         TypedQuery<Company> q = em.createQuery("INSERT QUERY HERE TO GET A COMPANY", Company.class);
+        q.setParameter("cvr", cvr);
         return q.getSingleResult();
     }
     
@@ -65,12 +67,16 @@ public class CompanyFacade {
      * Delete a single company from database
      *
      * @param company
+     * @return 
      */
-    public void deleteCompany(Company company){
+    public Company deleteCompany(Company company){
         if(em.find(Company.class, company.getCvr()) != null){
             em.getTransaction().begin();
             em.remove(company);
             em.getTransaction().commit();
+            return company;
+        } else {
+            return null;
         }
     }
     

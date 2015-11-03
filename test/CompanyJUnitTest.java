@@ -30,4 +30,5 @@ public class CompanyJUnitTest {
         
         assertEquals(comp.getCvr(), "12345678");
     }
+    
 }

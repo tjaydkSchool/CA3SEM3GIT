@@ -18,13 +18,15 @@ public class Company {
     
     @Id
     private String cvr;
+    private String name;
     private double stock;
 
     public Company() {
     }
 
-    public Company(String cvr, double stock) {
+    public Company(String cvr, String name, double stock) {
         this.cvr = cvr;
+        this.name = name;
         this.stock = stock;
     }
 
@@ -43,7 +45,13 @@ public class Company {
     public void setCvr(String cvr) {
         this.cvr = cvr;
     }
-    
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
     
 }
