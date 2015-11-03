@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ public class User {
     private String username;
     private String password; //Remember to hash me
     @ElementCollection
-    private Collection<Company> companyList;
+    private Collection<Company> companyList = new ArrayList<Company>();
     
     
     public User() {
@@ -25,6 +26,12 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String username, String password, Collection<Company> companyList) {
+        this.username = username;
+        this.password = password;
+        this.companyList = companyList;
     }
 
     public String getPassword() {
@@ -51,5 +58,20 @@ public class User {
         this.id = id;
     }
     
+    public Collection<Company> getCompanyList() {
+        return companyList;
+    }
+
+    public void setCompanyList(Collection<Company> companyList) {
+        this.companyList = companyList;
+    }
+    
+    public void addCompanyToList(Company comp) {
+        companyList.add(comp);
+    }
+    
+    public void removeCompanyFromList(Company comp) {
+        companyList.remove(comp);
+    }
     
 }
