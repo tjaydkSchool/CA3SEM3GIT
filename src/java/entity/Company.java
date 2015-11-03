@@ -18,21 +18,21 @@ public class Company {
     
     @Id
     private String cvr;
-    private String stock;
+    private double stock;
 
     public Company() {
     }
 
-    public Company(String cvr, String stock) {
+    public Company(String cvr, double stock) {
         this.cvr = cvr;
         this.stock = stock;
     }
 
-    public String getStock() {
+    public double getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(double stock) {
         this.stock = stock;
     }
 

@@ -2,6 +2,7 @@ package entity;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,12 +13,10 @@ import javax.persistence.Id;
 public class User {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
     private String username;
     private String password; //Remember to hash me
     @ElementCollection
-    private Collection<Company> companyList = new ArrayList<Company>();
+    private Collection<String> companyList = new ArrayList<String>();
     
     
     public User() {
@@ -28,7 +27,7 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, String password, Collection<Company> companyList) {
+    public User(String username, String password, List<String> companyList) {
         this.username = username;
         this.password = password;
         this.companyList = companyList;
@@ -50,28 +49,21 @@ public class User {
         this.username = username;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
     
-    public Collection<Company> getCompanyList() {
+    public Collection<String> getCompanyList() {
         return companyList;
     }
 
-    public void setCompanyList(Collection<Company> companyList) {
+    public void setCompanyList(List<String> companyList) {
         this.companyList = companyList;
     }
     
-    public void addCompanyToList(Company comp) {
-        companyList.add(comp);
+    public void addCompanyToList(String cvr) {
+        companyList.add(cvr);
     }
     
-    public void removeCompanyFromList(Company comp) {
-        companyList.remove(comp);
+    public void removeCompanyFromList(String cvr) {
+        companyList.remove(cvr);
     }
     
 }
